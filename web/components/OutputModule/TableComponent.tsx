@@ -149,7 +149,7 @@ function TableComponent<EntityModel extends object>({ columns }: Props<EntityMod
       size="small"
       pagination={ { pageSize, position: [ "bottomCenter" ], hideOnSinglePage: true } }
       onChange={ onChange }
-      title={ (data) => <div style={{ color: "rgb(38, 38, 38)", padding: "5px 10px" }}>{ data.length } rows fetched</div> }
+      title={ (data) => <div style={{ color: "rgb(38, 38, 38)", padding: "px"}}>{ data.length } of { dataSource.length } rows</div> }
       scroll={ { x: "100%", scrollToFirstRowOnChange: true } }
       bordered
       sticky

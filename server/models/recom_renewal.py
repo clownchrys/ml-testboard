@@ -35,7 +35,7 @@ class ResultByGnoOutput(BaseModelWithRowid):
     actvt_code: Optional[str]
     is_include: Optional[str]
     dt: Optional[str]
-    score: Optional[int]
+    score: Optional[float]
     TITLE: Optional[str]
     BZT_1: Optional[str]
     BZT_2: Optional[str]
