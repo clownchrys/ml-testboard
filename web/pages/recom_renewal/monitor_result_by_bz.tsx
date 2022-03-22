@@ -3,48 +3,24 @@ import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { Divider } from "antd";
 import InfoComponent from "components/InfoComponent";
-import MultiParamForm from "components/FormModule/MultiParamForm";
+import NoParamForm from "components/FormModule/NoParamForm";
 import TableComponent from "components/OutputModule/TableComponent";
 import LoadingComponent from "components/LoadingComponent";
 import { actions as menuActions } from "reducers/menu";
 import { actions as tableActions } from "reducers/table";
-import type { Field } from "types/form";
 import type { ColumnType2 } from "types/table";
-import type { ResultByGnoInput, ResultByGnoOutput } from "models/recom_renewal/result_by_gno";
+import type { ResultByIdOutput } from "models/recom_renewal/result_by_id";
 
-type InputModel = ResultByGnoInput
-type OutputModel = ResultByGnoOutput
+type OutputModel = ResultByIdOutput
 
 const Description = `
-  - 공고별 추천 공고 검증
-  - 공고유사도 Threshold: 0.9
-  - 추천 스코어 산술식: avg( similarity + (1 - similarity) * weight )
-  `
-
-const fields: Field<InputModel>[] = [
-  {
-    param: "gno",
-    label: "공고 번호",
-    placeholder: "공고 번호",
-    required: true,
-    message: "gno is required",
-    inputCls: "InputNumber",
-    inputStyle: { width: "200px" }
-  },
-  {
-    param: "actvt_code",
-    label: "액티비티 코드",
-    placeholder: "액티비티 코드",
-    required: true,
-    message: "actvt_code is required",
-    inputCls: "InputNumber",
-    inputStyle: { width: "200px" }
-  },
-]
+  - 직무산업별 추천 결과 확인
+`
 
 const columns: ColumnType2<OutputModel>[] = [
   { title: "#", dataIndex: "rowid" },
   { title: "kind", dataIndex: "kind" },
+  { title: "m_id", dataIndex: "m_id" },
   { title: "gno", dataIndex: "gno" },
   { title: "actvt_code", dataIndex: "actvt_code" },
   { title: "is_include", dataIndex: "is_include" },
@@ -59,24 +35,22 @@ const columns: ColumnType2<OutputModel>[] = [
   { title: "URL", dataIndex: "URL" },
 ]
 
-function TestByGno() {
+function MonitorResultByBz() {
   const router = useRouter();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(menuActions.setMenu("/recom_renewal/result_by_gno"))
+    dispatch(menuActions.setMenu("/recom_renewal/monitor_result_by_bz"))
     dispatch(tableActions.resetDataSource())
   }, [ dispatch ])
 
   return (router.isFallback)
     ? <LoadingComponent desc="페이지를 생성하는 중입니다..."/>
     : <>
-      <InfoComponent projectName="추천 구조개선" functionName="공고별 검증" desc={ Description }/>
-      <MultiParamForm<InputModel, OutputModel>
-        nCols={ 2 }
-        fields={ fields }
-        endpointApi={ "/api/recom_renewal/result_by_gno" }
-        style={{ margin: "30px 0", minWidth: "50%" }}
+      <InfoComponent projectName="추천 구조개선" functionName="추천 결과 조회" desc={ Description }/>
+      <NoParamForm
+        endpointApi={ "/api/recom_renewal/monitor_result_by_bz" }
+        style={{ margin: "30px 0" }}
       />
       <Divider/>
       <TableComponent<OutputModel> columns={ columns }/>
@@ -87,4 +61,4 @@ export function getStaticProps() {
   return { props: {} }
 }
 
-export default TestByGno;
+export default MonitorResultByBz;

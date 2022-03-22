@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { Card } from "antd";
 import { useDispatch } from "react-redux";
-import { actions } from "../reducers/menu";
+import { actions } from "reducers/menu";
 import { useRouter } from "next/router";
-import LoadingComponent from "../components/LoadingComponent";
+import { Card } from "antd";
+import LoadingComponent from "components/LoadingComponent";
 
 const homeContainer: React.CSSProperties = {
   padding: "0 0.5rem",

@@ -4,11 +4,12 @@ import { Form, Input, Button, Space, FormProps, Row, Col, InputNumber } from 'an
 import { useForm } from "antd/lib/form/Form";
 import { MinusCircleOutlined, PlusOutlined} from '@ant-design/icons';
 import type { FormListProps } from "antd/lib/form/FormList";
-import type { BaseFormProps } from "types/form";
+import type { BaseFormProps, Field } from "types/form";
 import { useDispatch } from "react-redux";
 import { actions as tableActions } from "reducers/table";
 
 type MultiParamFormProps<FieldModel, ApiReturnModel> = BaseFormProps<FieldModel, ApiReturnModel> & {
+  fields: Field<FieldModel>[],
   nCols: number,
 }
 

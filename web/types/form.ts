@@ -1,5 +1,4 @@
 import React from "react";
-import { Input, InputNumber } from "antd";
 
 export type Field<Model> = {
   param: keyof Model,
@@ -11,10 +10,7 @@ export type Field<Model> = {
   inputStyle?: React.CSSProperties,
 }
 
-export type FieldValue<Model> = { [k in keyof Model]: string }
-
 export type BaseFormProps<FieldModel, ApiReturnModel> = {
-  fields: Field<FieldModel>[],
   endpointApi: string,
   style?: React.CSSProperties
 }

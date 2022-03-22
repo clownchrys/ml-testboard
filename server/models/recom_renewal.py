@@ -43,3 +43,19 @@ class ResultByGnoOutput(BaseModelWithRowid):
     LOCAL_2: Optional[str]
     IS_PAID: Optional[str]
     URL: Optional[str]
+
+
+class GetUsersOutput(BaseModelWithRowid):
+    m_id: str
+
+
+class MonitorModelByBzOutput(BaseModelWithRowid):
+    gno: int
+    recom_gno: int
+    score: float
+    title: Optional[str]
+    title_recom: Optional[str]
+    BZT_1: Optional[str]
+    BZT_2: Optional[str]
+    LOCAL_1: Optional[str]
+    LOCAL_2: Optional[str]

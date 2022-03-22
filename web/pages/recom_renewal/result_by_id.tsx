@@ -1,16 +1,16 @@
 import { useEffect } from "react";
-import { Input, Divider } from "antd";
-import InfoComponent from "components/InfoComponent";
-import TableComponent from "components/OutputModule/TableComponent";
-import SingleParamForm from "components/FormModule/SingleParamForm";
 import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
+import { Divider } from "antd";
+import InfoComponent from "components/InfoComponent";
+import SingleParamForm from "components/FormModule/SingleParamForm";
+import TableComponent from "components/OutputModule/TableComponent";
+import LoadingComponent from "components/LoadingComponent";
 import { actions as menuActions } from "reducers/menu";
 import { actions as tableActions } from "reducers/table";
 import type { Field } from "types/form";
 import type { ColumnType2 } from "types/table";
 import type { ResultByIdInput, ResultByIdOutput } from "models/recom_renewal/result_by_id";
-import { useRouter } from "next/router";
-import LoadingComponent from "../../components/LoadingComponent"; // change this to use other models
 
 type InputModel = ResultByIdInput
 type OutputModel = ResultByIdOutput
@@ -33,7 +33,7 @@ const fields: Field<InputModel>[] = [
 ]
 
 const columns: ColumnType2<OutputModel>[] = [
-  { title: "rowid", dataIndex: "rowid" },
+  { title: "#", dataIndex: "rowid" },
   { title: "kind", dataIndex: "kind" },
   { title: "m_id", dataIndex: "m_id" },
   { title: "gno", dataIndex: "gno" },

@@ -2,11 +2,12 @@ import React from "react";
 import axios from "axios";
 import { Form, Input, Button, FormProps, Row, Col, InputNumber } from 'antd';
 import { useForm } from "antd/lib/form/Form";
-import { BaseFormProps } from "types/form";
+import { BaseFormProps, Field } from "types/form";
 import { actions as tableActions } from "reducers/table";
 import { useDispatch } from "react-redux";
 
 type SingleParamFormProps<FieldModel, ApiReturnModel> = BaseFormProps<FieldModel, ApiReturnModel> & {
+  fields: Field<FieldModel>[],
   nCols: number,
 }
 

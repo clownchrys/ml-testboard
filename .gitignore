@@ -12,6 +12,7 @@ web/.next
 web/node_modules
 web/build
 web/package-lock.json
+web/yarn.lock
 web/npm-debug.log*
 web/yarn-debug.log*
 web/yarn-error.log*
