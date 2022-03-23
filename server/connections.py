@@ -33,3 +33,4 @@ class PrestoExecutor:
         if include_rowid:
             data = map(lambda index_row: dict(rowid=index_row[0], **index_row[1]), enumerate(data, 1))
         return list(data)
+

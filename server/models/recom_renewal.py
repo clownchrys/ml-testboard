@@ -59,3 +59,10 @@ class MonitorModelByBzOutput(BaseModelWithRowid):
     BZT_2: Optional[str]
     LOCAL_1: Optional[str]
     LOCAL_2: Optional[str]
+
+
+class MonitorResultByBzOutput(BaseModelWithRowid):
+    m_id: str
+    bizjobtype_bctgr_name: Optional[str]
+    bizjobtype_name: Optional[str]
+

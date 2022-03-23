@@ -9,30 +9,20 @@ import LoadingComponent from "components/LoadingComponent";
 import { actions as menuActions } from "reducers/menu";
 import { actions as tableActions } from "reducers/table";
 import type { ColumnType2 } from "types/table";
-import type { ResultByIdOutput } from "models/recom_renewal/result_by_id";
+import type { MonitorResultByBzOutput } from "models/recom_renewal/monitor_result_by_bz";
 
-type OutputModel = ResultByIdOutput
+type OutputModel = MonitorResultByBzOutput
 
 const Description = `
-  - 직무산업별 추천 결과 확인
+  - 직무별 유저 샘플링
+  - 실제 추천 결과 확인을 위해 사용
 `
 
 const columns: ColumnType2<OutputModel>[] = [
-  { title: "#", dataIndex: "rowid" },
-  { title: "kind", dataIndex: "kind" },
+  { title: "#", dataIndex: "rowid", width: 150 },
   { title: "m_id", dataIndex: "m_id" },
-  { title: "gno", dataIndex: "gno" },
-  { title: "actvt_code", dataIndex: "actvt_code" },
-  { title: "is_include", dataIndex: "is_include" },
-  { title: "dt", dataIndex: "dt" },
-  { title: "score", dataIndex: "score" },
-  { title: "TITLE", dataIndex: "TITLE" },
-  { title: "BZT_1", dataIndex: "BZT_1" },
-  { title: "BZT_2", dataIndex: "BZT_2" },
-  { title: "LOCAL_1", dataIndex: "LOCAL_1" },
-  { title: "LOCAL_2", dataIndex: "LOCAL_2" },
-  { title: "IS_PAID", dataIndex: "IS_PAID" },
-  { title: "URL", dataIndex: "URL" },
+  { title: "bizjobtype_bctgr_name", dataIndex: "bizjobtype_bctgr_name" },
+  { title: "bizjobtype_name", dataIndex: "bizjobtype_name" },
 ]
 
 function MonitorResultByBz() {

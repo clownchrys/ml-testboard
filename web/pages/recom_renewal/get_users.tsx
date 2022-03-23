@@ -16,6 +16,7 @@ type OutputModel = GetUsersOutput
 const Description = `
   - 추천 가능한 유저 목록 조회
   - 유저별 검증과 함께 활용
+  - 서버 부하상의 이유로 최대 1만개의 유저만 추출
 `
 
 const columns: ColumnType2<OutputModel>[] = [

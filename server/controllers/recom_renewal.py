@@ -6,13 +6,16 @@ from jsf import JSF
 from models.recom_renewal import (
     ResultByIdInput, ResultByIdOutput,
     ResultByGnoInput, ResultByGnoOutput,
-    GetUsersOutput, MonitorModelByBzOutput
+    GetUsersOutput,
+    MonitorModelByBzOutput,
+    MonitorResultByBzOutput
 )
 from queries.recom_renewal import (
     query_result_by_id,
     query_result_by_gno,
     query_get_users,
-    query_monitor_model_by_bz, query_monitor_result_by_bz
+    query_monitor_model_by_bz,
+    query_monitor_result_by_bz
 )
 from connections import PrestoExecutor
 
@@ -52,19 +55,9 @@ async def handler_monitor_model_by_bz():
     return data
 
 
-@router.post("/monitor_result_by_bz", tags=[tag], response_model=List[ResultByIdOutput], description="직무 산업별 추천 결과 조회")
+@router.post("/monitor_result_by_bz", tags=[tag], response_model=List[MonitorResultByBzOutput], description="직무 산업별 추천 결과 조회")
 async def handler_monitor_result_by_bz():
-    user_sample_query = query_monitor_result_by_bz.string
-    list_user_id = PrestoExecutor.execute(user_sample_query, include_rowid=False)
-    list_input_model = [ResultByIdInput(**user_id) for user_id in list_user_id]
-
-    data = []
-    for input_model in list_input_model:
-        for _dict in await handler_result_by_id(input_model):
-            output_model = ResultByIdOutput(**_dict)
-            output_model.m_id = input_model.m_id
-            data.append(output_model)
-
-    # list_user_id = JSF(ResultByIdInput.schema()).generate(3)
-    # data = JSF(ResultByIdOutput.schema()).generate(3)
+    query = query_monitor_result_by_bz.string
+    data = PrestoExecutor.execute(query, include_rowid=True)
+    # data = JSF(MonitorResultByBzOutput.schema()).generate(3)
     return data
