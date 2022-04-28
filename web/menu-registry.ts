@@ -14,18 +14,23 @@ const RecomRenewalMenu: MenuGroupType = {
   ]
 }
 
-const RecomContentsMenu: MenuGroupType = {
+const RecomContentMenu: MenuGroupType = {
   root: {
-    path: "recom_contents",
+    path: "recom_content",
     name: "컨텐츠 추천"
   },
   children: [
-    // { path: "result_by_id", name: "유저별 검증" },
-    // { path: "result_by_gno", name: "공고별 검증" },
+    { path: "get_active_users", name: "Active 유저 조회" },
+    { path: "get_passive_users", name: "Passive 유저 조회" },
+    { path: "result_of_interview_review", name: "면접후기 추천" },
+    { path: "result_of_job_interview", name: "직무 인터뷰 추천" },
+    { path: "result_of_job_news", name: "취업뉴스 추천" },
+    { path: "result_of_job_talk", name: "취업톡톡 추천" },
+    { path: "result_of_passletter", name: "합격 자소서 추천" },
   ]
 }
 
 export default [
   RecomRenewalMenu,
-  RecomContentsMenu
+  RecomContentMenu
 ]

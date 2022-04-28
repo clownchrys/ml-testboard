@@ -13,7 +13,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
-from controllers import test, recom_renewal
+from controllers import (
+    test,
+    recom_renewal,
+    recom_content
+)
 from connections import PrestoConnection
 from utils.loggers import access_handler_hook
 
@@ -35,6 +39,7 @@ app.add_middleware(
 
 app.include_router(test.router, prefix="/test")
 app.include_router(recom_renewal.router, prefix="/recom_renewal")
+app.include_router(recom_content.router, prefix="/recom_content")
 
 
 @app.on_event("startup")
