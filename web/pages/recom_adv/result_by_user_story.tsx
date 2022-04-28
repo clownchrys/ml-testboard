@@ -29,24 +29,25 @@ const fields: FieldDesc<InputModel>[] = [
     inputType: "Select",
     inputStyle: { width: 120 },
     selectOptions: [
-      { name: "1", value: 1 },
-      { name: "89", value: 89 },
+      { name: "-1", value: -1 }, // outlier test
+
+      // { name: "89", value: 89 },
       { name: "54", value: 54 },
-      { name: "55", value: 55 },
-      { name: "56", value: 56 },
-      { name: "57", value: 57 },
-      { name: "83", value: 83 },
+      // { name: "55", value: 55 },
+      // { name: "56", value: 56 },
+      // { name: "57", value: 57 },
+      // { name: "83", value: 83 },
 
       { name: "41", value: 41 },
-      { name: "45", value: 45 },
-      { name: "61", value: 61 },
-      { name: "62", value: 62 },
-      { name: "46", value: 46 },
-      { name: "47", value: 47 },
+      // { name: "45", value: 45 },
+      // { name: "61", value: 61 },
+      // { name: "62", value: 62 },
+      // { name: "46", value: 46 },
+      // { name: "47", value: 47 },
 
       { name: "79", value: 79 },
-      { name: "80", value: 80 },
-      { name: "81", value: 81 },
+      // { name: "80", value: 80 },
+      // { name: "81", value: 81 },
     ]
   },
   {
