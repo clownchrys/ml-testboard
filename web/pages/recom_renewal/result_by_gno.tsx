@@ -8,7 +8,7 @@ import TableComponent from "components/OutputModule/TableComponent";
 import LoadingComponent from "components/LoadingComponent";
 import { actions as menuActions } from "reducers/menu";
 import { actions as tableActions } from "reducers/table";
-import type { Field } from "types/form";
+import type { FieldDesc } from "types/form";
 import type { ColumnType2 } from "types/table";
 import type { ResultByGnoInput, ResultByGnoOutput } from "models/recom_renewal/result_by_gno";
 
@@ -21,14 +21,14 @@ const Description = `
   - 추천 스코어 산술식: avg( similarity + (1 - similarity) * weight )
   `
 
-const fields: Field<InputModel>[] = [
+const fields: FieldDesc<InputModel>[] = [
   {
     param: "gno",
     label: "공고 번호",
     placeholder: "공고 번호",
     required: true,
     message: "gno is required",
-    inputCls: "InputNumber",
+    inputType: "InputNumber",
     inputStyle: { width: "200px" }
   },
   {
@@ -37,7 +37,7 @@ const fields: Field<InputModel>[] = [
     placeholder: "액티비티 코드",
     required: true,
     message: "actvt_code is required",
-    inputCls: "InputNumber",
+    inputType: "InputNumber",
     inputStyle: { width: "200px" }
   },
 ]

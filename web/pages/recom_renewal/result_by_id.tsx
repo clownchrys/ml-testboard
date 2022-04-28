@@ -8,7 +8,7 @@ import TableComponent from "components/OutputModule/TableComponent";
 import LoadingComponent from "components/LoadingComponent";
 import { actions as menuActions } from "reducers/menu";
 import { actions as tableActions } from "reducers/table";
-import type { Field } from "types/form";
+import type { FieldDesc } from "types/form";
 import type { ColumnType2 } from "types/table";
 import type { ResultByIdInput, ResultByIdOutput } from "models/recom_renewal/result_by_id";
 
@@ -21,14 +21,14 @@ const Description = `
   - 추천 스코어 산술식: avg( similarity + (1 - similarity) * weight )
 `
 
-const fields: Field<InputModel>[] = [
+const fields: FieldDesc<InputModel>[] = [
   {
     param: "m_id",
     label: "유저 아이디",
     required: true,
     message: "m_id is required",
     placeholder: "유저 아이디",
-    inputCls: "Input",
+    inputType: "Input",
   },
 ]
 

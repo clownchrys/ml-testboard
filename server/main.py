@@ -16,7 +16,8 @@ from fastapi.responses import JSONResponse
 from controllers import (
     test,
     recom_renewal,
-    recom_content
+    recom_content,
+    recom_adv,
 )
 from connections import PrestoConnection
 from utils.loggers import access_handler_hook
@@ -40,6 +41,7 @@ app.add_middleware(
 app.include_router(test.router, prefix="/test")
 app.include_router(recom_renewal.router, prefix="/recom_renewal")
 app.include_router(recom_content.router, prefix="/recom_content")
+app.include_router(recom_adv.router, prefix="/recom_adv")
 
 
 @app.on_event("startup")

@@ -8,7 +8,7 @@ import TableComponent from "components/OutputModule/TableComponent";
 import LoadingComponent from "components/LoadingComponent";
 import { actions as menuActions } from "reducers/menu";
 import { actions as tableActions } from "reducers/table";
-import type { Field } from "types/form";
+import type { FieldDesc } from "types/form";
 import type { ColumnType2 } from "types/table";
 import type { ResultOfInterviewReviewInput, ResultOfInterviewReviewOutput } from "models/recom_content/result_of_interview_review";
 
@@ -19,14 +19,14 @@ const Description = `
 설명이 없습니다
 `
 
-const fields: Field<InputModel>[] = [
+const fields: FieldDesc<InputModel>[] = [
   {
     param: "uid",
     label: "유저 아이디",
     required: true,
     message: "uid is required",
     placeholder: "유저 아이디",
-    inputCls: "Input",
+    inputType: "Input",
   },
 ]
 

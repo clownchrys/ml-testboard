@@ -1,13 +1,15 @@
 import React from "react";
 
-export type Field<Model> = {
+export type FieldDesc<Model> = {
   param: keyof Model,
   label: string,
   placeholder: string,
   required: boolean,
   message?: string,
-  inputCls: "Input" | "InputNumber",
+  inputType: "Input" | "InputNumber" | "Select",
   inputStyle?: React.CSSProperties,
+  selectDefaultValue?: any,
+  selectOptions?: { name: string, value: any }[],
 }
 
 export type BaseFormProps<FieldModel, ApiReturnModel> = {

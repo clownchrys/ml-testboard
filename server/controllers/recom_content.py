@@ -26,7 +26,7 @@ tag = os.path.basename(__file__)
 async def handler_result_of_interview_review(body: ResultByIdInput):
     query = query_result_of_interview_review.func(body)
     data = PrestoExecutor.execute(query, include_rowid=True)
-    #data = JSF(ResultByIdOutput.schema()).generate(3)
+    #data = JSF(ResultByStoryUserOutput.schema()).generate(3)
     return data
 
 
@@ -34,7 +34,7 @@ async def handler_result_of_interview_review(body: ResultByIdInput):
 async def handler_result_of_job_news(body: ResultByIdInput):
     query = query_result_of_job_news.func(body)
     data = PrestoExecutor.execute(query, include_rowid=True)
-    #data = JSF(ResultByIdOutput.schema()).generate(3)
+    #data = JSF(ResultByStoryUserOutput.schema()).generate(3)
     return data
 
 
@@ -42,7 +42,7 @@ async def handler_result_of_job_news(body: ResultByIdInput):
 async def handler_result_of_job_talk(body: ResultByIdInput):
     query = query_result_of_job_talk.func(body)
     data = PrestoExecutor.execute(query, include_rowid=True)
-    #data = JSF(ResultByIdOutput.schema()).generate(3)
+    #data = JSF(ResultByStoryUserOutput.schema()).generate(3)
     return data
 
 
@@ -50,7 +50,7 @@ async def handler_result_of_job_talk(body: ResultByIdInput):
 async def handler_result_of_passletter(body: ResultByIdInput):
     query = query_result_of_passletter.func(body)
     data = PrestoExecutor.execute(query, include_rowid=True)
-    #data = JSF(ResultByIdOutput.schema()).generate(3)
+    #data = JSF(ResultByStoryUserOutput.schema()).generate(3)
     return data
 
 
@@ -58,7 +58,7 @@ async def handler_result_of_passletter(body: ResultByIdInput):
 async def handler_result_of_job_interview(body: ResultByIdInput):
     query = query_result_of_job_interview.func(body)
     data = PrestoExecutor.execute(query, include_rowid=True)
-    #data = JSF(ResultByIdOutput.schema()).generate(3)
+    #data = JSF(ResultByStoryUserOutput.schema()).generate(3)
     return data
 
 

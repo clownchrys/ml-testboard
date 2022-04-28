@@ -1,13 +1,14 @@
 import React from "react";
 import axios from "axios";
-import { Form, Input, Button, FormProps, Row, Col, InputNumber } from 'antd';
+import { Form, Button, FormProps, Row, Col} from 'antd';
 import { useForm } from "antd/lib/form/Form";
-import { BaseFormProps, Field } from "types/form";
+import { BaseFormProps, FieldDesc } from "types/form";
 import { actions as tableActions } from "reducers/table";
 import { useDispatch } from "react-redux";
+import { makeInputComponent } from "common/components";
 
 type SingleParamFormProps<FieldModel, ApiReturnModel> = BaseFormProps<FieldModel, ApiReturnModel> & {
-  fields: Field<FieldModel>[],
+  fields: FieldDesc<FieldModel>[],
   nCols: number,
 }
 
@@ -29,16 +30,16 @@ function SingleParamForm<FieldModel, ApiReturnModel>({ nCols, fields, endpointAp
     dispatch(tableActions.resetDataSource());
   }
 
-  const formFields = fields.map(({ param, label, required, message, placeholder, inputCls, inputStyle }, index) => (
-    <Col key={ index } span={ 24 / nCols } style={ { flexGrow: 1 } }>
-      <Form.Item name={ param as string } label={ label } rules={ [ { required, message } ] }>
-        { inputCls == "Input"
-          ? <Input placeholder={ placeholder } style={ inputStyle }/>
-          : <InputNumber placeholder={ placeholder } style={ inputStyle }/>
-        }
-      </Form.Item>
-    </Col>
-  ))
+  const formFields = fields.map((fieldDesc, index) => {
+    const { param, label, required, message} = fieldDesc;
+    return (
+      <Col key={ index } span={ 24 / nCols } style={ { flexGrow: 1 } }>
+        <Form.Item name={ param as string } label={ label } rules={ [ { required, message } ] }>
+          { makeInputComponent(fieldDesc) }
+        </Form.Item>
+      </Col>
+    );
+  })
 
   return (
     <Form form={ form } onFinish={ onFinish } style={ style }>

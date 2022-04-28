@@ -4,12 +4,13 @@ import { Form, Input, Button, Space, FormProps, Row, Col, InputNumber } from 'an
 import { useForm } from "antd/lib/form/Form";
 import { MinusCircleOutlined, PlusOutlined} from '@ant-design/icons';
 import type { FormListProps } from "antd/lib/form/FormList";
-import type { BaseFormProps, Field } from "types/form";
+import type { BaseFormProps, FieldDesc } from "types/form";
 import { useDispatch } from "react-redux";
 import { actions as tableActions } from "reducers/table";
+import { makeInputComponent } from "../../common/components";
 
 type MultiParamFormProps<FieldModel, ApiReturnModel> = BaseFormProps<FieldModel, ApiReturnModel> & {
-  fields: Field<FieldModel>[],
+  fields: FieldDesc<FieldModel>[],
   nCols: number,
 }
 
@@ -32,21 +33,17 @@ function MultiParamForm<FieldModel, ApiReturnModel>({ nCols, fields, endpointApi
   }
 
   const renderItem = (name: number) =>
-    fields.map(({ param, label, placeholder, message, required, inputCls, inputStyle}, index) => {
-      let InputComponent;
-      if (inputCls == "Input") {
-        InputComponent = <Input placeholder={ placeholder } style={ inputStyle }/>;
-      } else if (inputCls == "InputNumber") {
-        InputComponent = <InputNumber placeholder={ placeholder } style={ inputStyle }/>;
-      }
+    fields.map((fieldDesc, index) => {
+      const { param, label, message, required } = fieldDesc;
       return (
         <Col key={ index } span={ 24 / nCols }>
           <Form.Item key={ index } name={ [ name, param as string ] } label={ label } rules={ [ { required, message } ] }>
-            { InputComponent }
+            { makeInputComponent(fieldDesc) }
           </Form.Item>
         </Col>
       );
     })
+
   const renderItemList: FormListProps["children"] = (formList, { add, remove }) => (
     <div style={ { width: "fit-content", margin: "auto" } }>
       {

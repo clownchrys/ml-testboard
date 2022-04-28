@@ -30,7 +30,19 @@ const RecomContentMenu: MenuGroupType = {
   ]
 }
 
+const RecomAdvMenu: MenuGroupType = {
+  root: {
+    path: "recom_adv",
+    name: "Adv 추천"
+  },
+  children: [
+    { path: "user_profile", name: "유저 프로파일 조회" },
+    { path: "result_by_user_story", name: "유저별 스토리 결과 조회" },
+  ]
+}
+
 export default [
   RecomRenewalMenu,
-  RecomContentMenu
+  RecomContentMenu,
+  RecomAdvMenu,
 ]

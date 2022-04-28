@@ -27,7 +27,7 @@ tag = os.path.basename(__file__)
 async def handler_result_by_id(body: ResultByIdInput):
     query = query_result_by_id.func(body)
     data = PrestoExecutor.execute(query, include_rowid=True)
-    # data = JSF(ResultByIdOutput.schema()).generate(3)
+    # data = JSF(ResultByStoryUserOutput.schema()).generate(3)
     return data
 
 
