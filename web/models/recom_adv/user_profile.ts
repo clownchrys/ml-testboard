@@ -5,4 +5,6 @@ export interface UserProfile extends WithRowId {
   story_number: string
   jk_latestjobtitle_code?: string
   jk_jobtitle_code?: string
+  jk_latestjobtitle_name?: string
+  jk_jobtitle_name?: string
 }

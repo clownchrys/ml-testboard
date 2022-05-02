@@ -23,6 +23,8 @@ const columns: ColumnType2<OutputModel>[] = [
   { title: "story_number", dataIndex: "story_number" },
   { title: "jk_latestjobtitle_code", dataIndex: "jk_latestjobtitle_code" },
   { title: "jk_jobtitle_code", dataIndex: "jk_jobtitle_code" },
+  { title: "jk_latestjobtitle_name", dataIndex: "jk_latestjobtitle_name" },
+  { title: "jk_jobtitle_name", dataIndex: "jk_jobtitle_name" },
 ]
 
 function UserProfile() {

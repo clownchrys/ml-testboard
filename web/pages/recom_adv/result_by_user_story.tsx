@@ -19,6 +19,28 @@ const Description = `
   - 유저별 각 스토리 결과 검증
 `
 
+const story_options = [
+      // { name: "-1", value: -1 }, // outlier test
+
+      { name: "89", value: 89 },
+      { name: "54", value: 54 },
+      { name: "55", value: 55 },
+      { name: "56", value: 56 },
+      { name: "57", value: 57 },
+      { name: "83", value: 83 },
+
+      { name: "41", value: 41 },
+      { name: "45", value: 45 },
+      { name: "61", value: 61 },
+      { name: "62", value: 62 },
+      { name: "46", value: 46 },
+      { name: "47", value: 47 },
+
+      { name: "79", value: 79 },
+      { name: "80", value: 80 },
+      { name: "81", value: 81 },
+]
+
 const fields: FieldDesc<InputModel>[] = [
   {
     param: "story_number",
@@ -28,27 +50,7 @@ const fields: FieldDesc<InputModel>[] = [
     placeholder: "스토리 번호",
     inputType: "Select",
     inputStyle: { width: 120 },
-    selectOptions: [
-      { name: "-1", value: -1 }, // outlier test
-
-      // { name: "89", value: 89 },
-      { name: "54", value: 54 },
-      // { name: "55", value: 55 },
-      // { name: "56", value: 56 },
-      // { name: "57", value: 57 },
-      // { name: "83", value: 83 },
-
-      { name: "41", value: 41 },
-      // { name: "45", value: 45 },
-      // { name: "61", value: 61 },
-      // { name: "62", value: 62 },
-      // { name: "46", value: 46 },
-      // { name: "47", value: 47 },
-
-      { name: "79", value: 79 },
-      // { name: "80", value: 80 },
-      // { name: "81", value: 81 },
-    ]
+    selectOptions: story_options.sort((a, b) => a.value - b.value)
   },
   {
     param: "m_id",
@@ -63,6 +65,7 @@ const fields: FieldDesc<InputModel>[] = [
 const columns: ColumnType2<OutputModel>[] = [
   { title: "#", dataIndex: "rowid", width: 150 },
   { title: "m_id", dataIndex: "m_id" },
+  { title: "story_title", dataIndex: "story_title" },
   { title: "gi_title", dataIndex: "gi_title" },
   { title: "bizjobtype_name", dataIndex: "bizjobtype_name" },
   { title: "total_score", dataIndex: "total_score" },

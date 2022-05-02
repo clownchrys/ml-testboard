@@ -7,6 +7,7 @@ export interface ResultByUserStoryInput extends WithRowId {
 
 export interface ResultByUserStoryOutput extends WithRowId {
   m_id: string
+  story_title: string
   gi_title?: string
   bizjobtype_name?: string
   total_score?: number
