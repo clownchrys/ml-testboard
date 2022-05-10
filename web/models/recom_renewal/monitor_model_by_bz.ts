@@ -1,5 +1,9 @@
 import { WithRowId } from "models";
 
+export interface MonitorModelByBzInput {
+  env: string
+}
+
 export interface MonitorModelByBzOutput extends WithRowId {
   gno: number
   recom_gno: number

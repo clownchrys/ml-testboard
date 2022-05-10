@@ -23,6 +23,19 @@ const Description = `
 
 const fields: FieldDesc<InputModel>[] = [
   {
+    param: "env",
+    label: "개발환경",
+    required: true,
+    message: "env is required",
+    placeholder: "개발환경",
+    inputType: "Select",
+    inputStyle: { width: 120 },
+    selectOptions: [
+		{ name: "staging", value: "staging" },
+		{ name: "production", value: "prod" },
+	]
+  },
+  {
     param: "m_id",
     label: "유저 아이디",
     required: true,

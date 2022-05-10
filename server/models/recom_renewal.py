@@ -3,7 +3,11 @@ from typing import Optional
 from models import BaseModel, BaseModelWithRowid
 
 
-class ResultByIdInput(BaseModel):
+class EnvInput(BaseModel):
+    env: Optional[str]
+
+
+class ResultByIdInput(EnvInput, BaseModel):
     m_id: str
 
 

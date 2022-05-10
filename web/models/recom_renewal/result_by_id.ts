@@ -2,6 +2,7 @@ import { WithRowId } from "models";
 
 export interface ResultByIdInput {
   m_id: string
+  env: string
 }
 
 export interface ResultByIdOutput extends WithRowId {

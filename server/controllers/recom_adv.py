@@ -113,7 +113,7 @@ async def handler_result_user_profile():
 	  , A.story_number
 	  , A.jk_latestjobtitle_code
 	  , array_join(array_agg(B.jk_jobtitle_code), ',') AS jk_jobtitle_code
-	  , array_join(array_agg(C.BizJobType_Name), ',') AS jk_latestjobtitle_name
+	  , array_agg(C.BizJobType_Name)[1] AS jk_latestjobtitle_name
 	  , array_join(array_agg(D.BizJobType_Name), ',') AS jk_jobtitle_name
 	FROM CTE A
 	CROSS JOIN UNNEST(jk_jobtitle_code) AS B (jk_jobtitle_code)
