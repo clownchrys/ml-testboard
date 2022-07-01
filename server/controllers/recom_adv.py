@@ -7,13 +7,6 @@ from models.recom_adv import (
     ResultByUserStoryInput, ResultByStoryUserOutput,
     ResultUserProfile,
 )
-# from queries.recom_renewal import (
-#     query_result_by_id,
-#     query_result_by_gno,
-#     query_get_users,
-#     query_monitor_model_by_bz,
-#     query_monitor_result_by_bz
-# )
 from connections import PrestoExecutor
 
 router = APIRouter()

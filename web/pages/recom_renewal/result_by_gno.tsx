@@ -19,6 +19,12 @@ const Description = `
   - 공고별 추천 공고 검증
   - 공고유사도 Threshold: 0.9
   - 추천 스코어 산술식: avg( similarity + (1 - similarity) * weight )
+
+  - 온라인 지원 (actvt_code = 1)
+  - 이메일 지원 (actvt_code = 2)
+  - 스크랩 (actvt_code = 3)
+  - 홈페이지 지원 (actvt_code = 4)
+  - 클릭 (actvt_code = 5)
   `
 
 const fields: FieldDesc<InputModel>[] = [

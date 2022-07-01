@@ -10,7 +10,7 @@ import { actions as menuActions } from "reducers/menu";
 import { actions as tableActions } from "reducers/table";
 import type { FieldDesc } from "types/form";
 import type { ColumnType2 } from "types/table";
-import type { ResultByUserStoryInput, ResultByUserStoryOutput } from "models/recom_adv/result_by_user_story";
+import type { ResultByUserStoryInput, ResultByUserStoryOutput } from "models/recom_am_adv/result_by_user_story";
 
 type InputModel = ResultByUserStoryInput
 type OutputModel = ResultByUserStoryOutput
@@ -19,26 +19,32 @@ const Description = `
   - 유저별 각 스토리 결과 검증
 `
 
+
+
 const story_options = [
       // { name: "-1", value: -1 }, // outlier test
 
-      { name: "89", value: 89 },
-      { name: "54", value: 54 },
-      { name: "55", value: 55 },
-      { name: "56", value: 56 },
-      { name: "57", value: 57 },
-      { name: "83", value: 83 },
-
-      { name: "41", value: 41 },
-      { name: "45", value: 45 },
-      { name: "61", value: 61 },
-      { name: "62", value: 62 },
-      { name: "46", value: 46 },
-      { name: "47", value: 47 },
-
-      { name: "79", value: 79 },
-      { name: "80", value: 80 },
-      { name: "81", value: 81 },
+  { name: "1", value: 1 },
+  { name: "2", value: 2 },
+  { name: "3", value: 3 },
+  { name: "4", value: 4 },
+  { name: "5", value: 5 },
+  { name: "7", value: 7 },
+  { name: "8", value: 8 },
+  { name: "18", value: 18 },
+  { name: "19", value: 19 },
+  { name: "23", value: 23 },
+  { name: "24", value: 24 },
+  { name: "25", value: 25 },
+  { name: "26", value: 26 },
+  { name: "27", value: 27 },
+  { name: "28", value: 28 },
+  { name: "30", value: 30 },
+  { name: "32", value: 32 },
+  { name: "33", value: 33 },
+  { name: "73", value: 73 },
+  { name: "97", value: 97 },
+  { name: "98", value: 98 },
 ]
 
 const fields: FieldDesc<InputModel>[] = [
@@ -67,9 +73,13 @@ const columns: ColumnType2<OutputModel>[] = [
   { title: "m_id", dataIndex: "m_id" },
   { title: "story_title", dataIndex: "story_title" },
   { title: "gi_title", dataIndex: "gi_title" },
-  { title: "bizjobtype_name", dataIndex: "bizjobtype_name" },
-  { title: "total_score", dataIndex: "total_score" },
+  { title: "local_name", dataIndex: "local_name" },
+  { title: "partname", dataIndex: "partname" },
+  { title: "work_sdate", dataIndex: "work_sdate" },
+  { title: "score", dataIndex: "score" },
   { title: "url", dataIndex: "url" },
+  { title: "am_clickacum_cnt", dataIndex: "am_clickacum_cnt" },
+  { title: "am_applyacum_cnt", dataIndex: "am_applyacum_cnt" },
 ]
 
 function ResultByUserStory() {
@@ -77,18 +87,18 @@ function ResultByUserStory() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(menuActions.setMenu("/recom_adv/result_by_user_story"))
+    dispatch(menuActions.setMenu("/recom_am_adv/result_by_user_story"))
     dispatch(tableActions.resetDataSource())
   }, [ dispatch ])
 
   return (router.isFallback)
     ? <LoadingComponent desc="페이지를 생성하는 중입니다..."/>
     : <>
-      <InfoComponent projectName="JK Adv 추천" functionName="유저별 스토리 결과 조회" desc={ Description }/>
+      <InfoComponent projectName="AM Adv 추천" functionName="유저별 스토리 결과 조회" desc={ Description }/>
       <SingleParamForm
         nCols={ 1 }
         fields={ fields }
-        endpointApi={ "/api/recom_adv/result_by_user_story" }
+        endpointApi={ "/api/recom_am_adv/result_by_user_story" }
         style={{ margin: "30px 0" }}
       />
       <Divider/>

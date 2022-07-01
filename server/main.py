@@ -18,6 +18,7 @@ from controllers import (
     recom_renewal,
     recom_content,
     recom_adv,
+    recom_am_adv,
 )
 from connections import PrestoConnection
 from utils.loggers import access_handler_hook
@@ -42,6 +43,7 @@ app.include_router(test.router, prefix="/test")
 app.include_router(recom_renewal.router, prefix="/recom_renewal")
 app.include_router(recom_content.router, prefix="/recom_content")
 app.include_router(recom_adv.router, prefix="/recom_adv")
+app.include_router(recom_am_adv.router, prefix="/recom_am_adv")
 
 
 @app.on_event("startup")
