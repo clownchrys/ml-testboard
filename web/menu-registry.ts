@@ -38,6 +38,7 @@ const RecomAdvMenu: MenuGroupType = {
   children: [
     { path: "user_profile", name: "유저 프로파일 조회" },
     { path: "result_by_user_story", name: "유저별 스토리 결과 조회" },
+    { path: "result_by_guest_story", name: "비회원 스토리 결과 조회" },
   ]
 }
 

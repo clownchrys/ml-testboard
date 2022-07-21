@@ -10,30 +10,30 @@ import { actions as menuActions } from "reducers/menu";
 import { actions as tableActions } from "reducers/table";
 import type { FieldDesc } from "types/form";
 import type { ColumnType2 } from "types/table";
-import type { ResultByUserStoryInput, ResultByUserStoryOutput } from "models/recom_adv/result_by_user_story";
+import type { ResultByGuestStoryInput, ResultByGuestStoryOutput } from "models/recom_adv/result_by_guest_story";
 
-type InputModel = ResultByUserStoryInput
-type OutputModel = ResultByUserStoryOutput
+type InputModel = ResultByGuestStoryInput
+type OutputModel = ResultByGuestStoryOutput
 
 const Description = `
-  - 유저별 각 스토리 결과 검증
+  - 비회월 스토리 결과 조회
 `
 
 const story_options = [
       // { name: "-1", value: -1 }, // outlier test
-    { name: "45", value: 45 },                                                                             
-    { name: "61", value: 61 },                                                                         
-    { name: "62", value: 62 },
-    { name: "46", value: 46 },
-    { name: "47", value: 47 },
-    { name: "89", value: 89 },
-    { name: "54", value: 54 },
-    { name: "55", value: 55 },
-    { name: "56", value: 56 },
-    { name: "57", value: 57 },
-    { name: "79", value: 79 },
-    { name: "80", value: 80 },
-    { name: "81", value: 81 }, 
+  { name: "45", value: 45 },
+  { name: "61", value: 61 },
+  { name: "62", value: 62 },
+  { name: "46", value: 46 },
+  { name: "47", value: 47 },
+  { name: "89", value: 89 },
+  { name: "54", value: 54 },
+  { name: "55", value: 55 },
+  { name: "56", value: 56 },
+  { name: "57", value: 57 },
+  { name: "79", value: 79 },
+  { name: "80", value: 80 },
+  { name: "81", value: 81 },
 ]
 
 const fields: FieldDesc<InputModel>[] = [
@@ -47,25 +47,13 @@ const fields: FieldDesc<InputModel>[] = [
     inputStyle: { width: 120 },
     selectOptions: story_options.sort((a, b) => a.value - b.value)
   },
-  {
-    param: "m_id",
-    label: "유저 아이디",
-    required: true,
-    message: "m_id is required",
-    placeholder: "유저 아이디",
-    inputType: "Input",
-  },
 ]
 
 const columns: ColumnType2<OutputModel>[] = [
   { title: "#", dataIndex: "rowid", width: 150 },
-  { title: "m_id", dataIndex: "m_id" },
   { title: "story_title", dataIndex: "story_title" },
-  { title: "gno", dataIndex: "gno" },
   { title: "gi_title", dataIndex: "gi_title" },
-  { title: "abn_bizjobtype_name", dataIndex: "abn_bizjobtype_name" },
-  { title: "job_bizjobtype_name", dataIndex: "job_bizjobtype_name" },
-  { title: "jk_jobtitle_name", dataIndex: "jk_jobtitle_name" },
+  //{ title: "AGI_BizJobType_Name", dataIndex: "AGI_BizJobType_Name" },
   { title: "recom_score", dataIndex: "recom_score" },
   { title: "url", dataIndex: "url" },
 ]
@@ -75,18 +63,18 @@ function ResultByUserStory() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(menuActions.setMenu("/recom_adv/result_by_user_story"))
+    dispatch(menuActions.setMenu("/recom_adv/result_by_guest_story"))
     dispatch(tableActions.resetDataSource())
   }, [ dispatch ])
 
   return (router.isFallback)
     ? <LoadingComponent desc="페이지를 생성하는 중입니다..."/>
     : <>
-      <InfoComponent projectName="JK Adv 추천" functionName="유저별 스토리 결과 조회" desc={ Description }/>
+      <InfoComponent projectName="JK Adv 추천" functionName="비회원 스토리 결과 조회" desc={ Description }/>
       <SingleParamForm
         nCols={ 1 }
         fields={ fields }
-        endpointApi={ "/api/recom_adv/result_by_user_story" }
+        endpointApi={ "/api/recom_adv/result_by_guest_story" }
         style={{ margin: "30px 0" }}
       />
       <Divider/>

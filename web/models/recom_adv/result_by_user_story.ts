@@ -6,10 +6,13 @@ export interface ResultByUserStoryInput extends WithRowId {
 }
 
 export interface ResultByUserStoryOutput extends WithRowId {
-  m_id: string
+  m_id?: string
   story_title: string
+  gno: number
   gi_title?: string
-  bizjobtype_name?: string
-  total_score?: number
-  url: string
+  abn_bizjobtype_name?: string
+  job_bizjobtype_name?: string
+  jk_jobtitle_name?: string
+  recom_score?: number
+  url?: string
 }

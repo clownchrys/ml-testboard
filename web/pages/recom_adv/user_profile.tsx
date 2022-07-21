@@ -14,16 +14,14 @@ import type { UserProfile } from "models/recom_adv/user_profile";
 type OutputModel = UserProfile
 
 const Description = `
-  - 유저별 가능한 스토리 번호 및 속성 조회
+  - 유저별 프로파일 정보 조회
 `
 
 const columns: ColumnType2<OutputModel>[] = [
   { title: "#", dataIndex: "rowid", width: 150 },
   { title: "m_id", dataIndex: "m_id" },
-  { title: "story_number", dataIndex: "story_number" },
-  { title: "jk_latestjobtitle_code", dataIndex: "jk_latestjobtitle_code" },
-  { title: "jk_jobtitle_code", dataIndex: "jk_jobtitle_code" },
-  { title: "jk_latestjobtitle_name", dataIndex: "jk_latestjobtitle_name" },
+  { title: "abn_bizjobtype_name", dataIndex: "abn_bizjobtype_name" },
+  { title: "job_bizjobtype_name", dataIndex: "job_bizjobtype_name" },
   { title: "jk_jobtitle_name", dataIndex: "jk_jobtitle_name" },
 ]
 
