@@ -5,14 +5,14 @@ __pycache__
 # server
 server/.venv
 server/logs
-server/poetry.lock
+#server/poetry.lock
 
 # web
 web/.next
 web/node_modules
 web/build
-web/package-lock.json
-web/yarn.lock
+#web/package-lock.json
+#web/yarn.lock
 web/npm-debug.log*
 web/yarn-debug.log*
 web/yarn-error.log*
