@@ -29,7 +29,8 @@ async def handler_result_by_user_story(body: ResultByUserStoryInput):
         , concat('https://www.albamon.com/recruit/view/gi?AL_GI_No=', cast(T.gno AS VARCHAR)) AS url
         FROM (select {body.m_id!r} as m_id ,gno, score from {db_name}.story_{body.story_number} where location_code='9999'
               ) as T
-          LEFT JOIN (SELECT al_gi_no as gno, subject as gi_title FROM mongi.mon_guin_db WHERE year IN (2021, 2022)) AGI ON T.gno = AGI.gno
+          --LEFT JOIN (SELECT al_gi_no as gno, subject as gi_title FROM mongi.mon_guin_db WHERE year IN (2021, 2022)) AGI ON T.gno = AGI.gno
+          LEFT JOIN (SELECT al_gi_no as gno, subject as gi_title FROM mongi.mon_guin_db) AGI ON T.gno = AGI.gno
           LEFT JOIN (SELECT al_gi_no as gno, am_clickacum_cnt, am_applyacum_cnt FROM mldata.profile_am_recruit) CNT ON T.gno = CNT.gno
         ORDER BY T.score DESC        
         """
@@ -86,7 +87,8 @@ async def handler_result_by_user_story(body: ResultByUserStoryInput):
                 group by (m_id,gno,B.part_code, B.work_sdate, B.location_code)
                 ORDER BY score DESC LIMIT 200
               ) as T
-          LEFT JOIN (SELECT al_gi_no as gno, subject as gi_title FROM mongi.mon_guin_db WHERE year IN (2021, 2022)) AGI ON T.gno = AGI.gno
+          --LEFT JOIN (SELECT al_gi_no as gno, subject as gi_title FROM mongi.mon_guin_db WHERE year IN (2021, 2022)) AGI ON T.gno = AGI.gno
+          LEFT JOIN (SELECT al_gi_no as gno, subject as gi_title FROM mongi.mon_guin_db) AGI ON T.gno = AGI.gno
           LEFT JOIN (select local_code, local_name from job_db30_gi.code_local) CODE ON T.location_code = CODE.local_code
           LEFT JOIN (select partcode, partname from mongi.mon_part_code) as PART_CODE on T.part_code=PART_CODE.partcode
           LEFT JOIN (SELECT al_gi_no as gno, am_clickacum_cnt, am_applyacum_cnt FROM mldata.profile_am_recruit) CNT ON T.gno = CNT.gno
@@ -146,7 +148,8 @@ async def handler_result_by_user_story(body: ResultByUserStoryInput):
                 group by (m_id,gno,B.part_code, B.location_code)
                 ORDER BY score DESC LIMIT 200
               ) as T
-          LEFT JOIN (SELECT al_gi_no as gno, subject as gi_title FROM mongi.mon_guin_db WHERE year IN (2021, 2022)) AGI ON T.gno = AGI.gno
+          --LEFT JOIN (SELECT al_gi_no as gno, subject as gi_title FROM mongi.mon_guin_db WHERE year IN (2021, 2022)) AGI ON T.gno = AGI.gno
+          LEFT JOIN (SELECT al_gi_no as gno, subject as gi_title FROM mongi.mon_guin_db) AGI ON T.gno = AGI.gno
           LEFT JOIN (select local_code, local_name from job_db30_gi.code_local) CODE ON T.location_code = CODE.local_code
           LEFT JOIN (select partcode, partname from mongi.mon_part_code) as PART_CODE on T.part_code=PART_CODE.partcode
           LEFT JOIN (SELECT al_gi_no as gno, am_clickacum_cnt, am_applyacum_cnt FROM mldata.profile_am_recruit) CNT ON T.gno = CNT.gno
@@ -189,7 +192,8 @@ async def handler_result_by_user_story(body: ResultByUserStoryInput):
           ORDER BY score DESC
           LIMIT 100
         ) T
-        LEFT JOIN (SELECT al_gi_no as gno, subject as gi_title FROM mongi.mon_guin_db WHERE year IN (2021, 2022)) AGI ON T.gno = AGI.gno
+        --LEFT JOIN (SELECT al_gi_no as gno, subject as gi_title FROM mongi.mon_guin_db WHERE year IN (2021, 2022)) AGI ON T.gno = AGI.gno
+        LEFT JOIN (SELECT al_gi_no as gno, subject as gi_title FROM mongi.mon_guin_db) AGI ON T.gno = AGI.gno
         LEFT JOIN (SELECT al_gi_no as gno, am_clickacum_cnt, am_applyacum_cnt FROM mldata.profile_am_recruit) CNT ON T.gno = CNT.gno
         ORDER BY T.score DESC
         """
@@ -230,7 +234,8 @@ async def handler_result_by_user_story(body: ResultByUserStoryInput):
           ORDER BY score DESC
           LIMIT 100
         ) T
-        LEFT JOIN (SELECT al_gi_no as gno, subject as gi_title FROM mongi.mon_guin_db WHERE year IN (2021, 2022)) AGI ON T.gno = AGI.gno
+        --LEFT JOIN (SELECT al_gi_no as gno, subject as gi_title FROM mongi.mon_guin_db WHERE year IN (2021, 2022)) AGI ON T.gno = AGI.gno
+        LEFT JOIN (SELECT al_gi_no as gno, subject as gi_title FROM mongi.mon_guin_db) AGI ON T.gno = AGI.gno
         LEFT JOIN (SELECT al_gi_no as gno, am_clickacum_cnt, am_applyacum_cnt FROM mldata.profile_am_recruit) CNT ON T.gno = CNT.gno
         ORDER BY T.score DESC
         """
@@ -286,7 +291,8 @@ async def handler_result_by_user_story(body: ResultByUserStoryInput):
                 group by (m_id,gno,B.location_code)
                 ORDER BY score DESC LIMIT 200
               ) as T
-          LEFT JOIN (SELECT al_gi_no as gno, subject as gi_title FROM mongi.mon_guin_db WHERE year IN (2021, 2022)) AGI ON T.gno = AGI.gno
+          --LEFT JOIN (SELECT al_gi_no as gno, subject as gi_title FROM mongi.mon_guin_db WHERE year IN (2021, 2022)) AGI ON T.gno = AGI.gno
+          LEFT JOIN (SELECT al_gi_no as gno, subject as gi_title FROM mongi.mon_guin_db) AGI ON T.gno = AGI.gno
           LEFT JOIN (select local_code, local_name from job_db30_gi.code_local) CODE ON T.location_code = CODE.local_code
           LEFT JOIN (SELECT al_gi_no as gno, am_clickacum_cnt, am_applyacum_cnt FROM mldata.profile_am_recruit) CNT ON T.gno = CNT.gno
         ORDER BY T.score DESC        
