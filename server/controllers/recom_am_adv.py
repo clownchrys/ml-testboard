@@ -6,6 +6,7 @@ from jsf import JSF
 from models.recom_am_adv import (
     ResultByUserStoryInput, ResultByStoryUserOutput,
     ResultUserProfile,
+    ResultGiSkillInput, ResultGiSkillOutput,
 )
 from connections import PrestoExecutor
 
@@ -320,5 +321,17 @@ async def handler_result_user_profile():
         """
     # data = JSF(ResultUserProfile.schema()).generate(3)
     data = PrestoExecutor.execute(query, include_rowid=True)
+    return data
+
+
+@router.post("/result_gi_skill", tags=[tag], response_model=List[ResultGiSkillOutput], description="공고별 프로파일 스킬")
+async def handler_result_gi_skill(body:ResultGiSkillInput):
+    query = f"""
+        SELECT al_gi_no, profile_skl
+        FROM user_story_am_staging.am_recm_guin_profile
+        WHERE al_gi_no = {body.al_gi_no}
+    """
+    data = JSF(ResultGiSkillOutput.schema()).generate(3)
+    #data = PrestoExecutor.execute(query, include_rowid=True)
     return data
 
