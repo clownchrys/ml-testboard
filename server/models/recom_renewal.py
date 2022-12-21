@@ -79,6 +79,10 @@ class ResultModelByGnoInput(BaseModel):
 class ResultModelByGnoOutput(BaseModelWithRowid):
     gno: int
     gi_title: Optional[str]
+    age_limit_over: Optional[int]
+    age_limit_under: Optional[int]
+    career: str
+    edu_level_name: Optional[str]
     jobname: Optional[str]
     score: float
     link: str

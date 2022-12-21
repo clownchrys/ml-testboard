@@ -50,9 +50,13 @@ const columns: ColumnType2<OutputModel>[] = [
   { title: "rowid", dataIndex: "rowid", width: 100 },
   { title: "gno", dataIndex: "gno", width: 100 },
   { title: "gi_title", dataIndex: "gi_title" },
-  { title: "jobname", dataIndex: "jobname", width: 300 },
+  { title: "age_limit_over", dataIndex: "age_limit_over" },
+  { title: "age_limit_under", dataIndex: "age_limit_under" },
+  { title: "career", dataIndex: "career" },
+  { title: "edu_level_name", dataIndex: "edu_level_name" },
+  { title: "jobname", dataIndex: "jobname" },
   { title: "score", dataIndex: "score", width: 100 },
-  { title: "link", dataIndex: "link", width: 200, ellipsis: true },
+  { title: "link", dataIndex: "link", width: 150, ellipsis: true },
 ]
 
 function ResultModelByGno() {
