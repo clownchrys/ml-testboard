@@ -48,7 +48,7 @@ const fields: FieldDesc<InputModel>[] = [
 
 const columns: ColumnType2<OutputModel>[] = [
   { title: "rowid", dataIndex: "rowid", width: 100 },
-  { title: "gno", dataIndex: "gno", width: 200 },
+  { title: "gno", dataIndex: "gno", width: 100 },
   { title: "gi_title", dataIndex: "gi_title" },
   { title: "jobname", dataIndex: "jobname", width: 300 },
   { title: "score", dataIndex: "score", width: 100 },

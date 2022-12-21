@@ -359,7 +359,17 @@ async def handler_result_model_by_gno(body: ResultModelByGnoInput):
     db = "mlresult_staging" if body.env else "mlresult"
     table = "mf_gi_sim"
     query = f"""
+select a.recom_gno as gno 
+, b.gi_title 
+, array_join(array_sort(array_distinct(array_agg(cb_sim.bizjobtype_name))), ',') as jobname 
+, a.score 
+, concat('https://www.jobkorea.co.kr/Recruit/GI_Read/', cast(a.recom_gno as varchar)) as link 
+from {db}.{table} a join job_db30_gi.agi b on b.gno = a.recom_gno 
+join job_db30_gi.agi_bizjobtype c on b.gno = c.gno 
+join job_db30_gi.code_bizjobtype cb_sim on cb_sim.bizjobtype_code = c.bizjobtype_code and cb_sim.bizjobtype_type_code = 2 
+where a.gno = {body.gno} 
+group by a.recom_gno, b.gi_title, a.score
     """
-    # data = PrestoExecutor.execute(query, include_rowid=True)
-    data = JSF(ResultModelByGnoOutput.schema()).generate(3)
+    data = PrestoExecutor.execute(query, include_rowid=True)
+    # data = JSF(ResultModelByGnoOutput.schema()).generate(3)
     return data
