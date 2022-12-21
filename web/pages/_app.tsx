@@ -1,4 +1,5 @@
 import "antd/dist/antd.css";
+
 import type { AppProps } from 'next/app'
 import Head from "next/head";
 import { Provider } from "react-redux";
@@ -16,12 +17,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="description" content="Jobkorea ML Testboard"/>
         <link rel="icon" href="/icon.png"/>
       </Head>
-
       <MainLayout>
         <Component {...pageProps}/>
       </MainLayout>
-
     </Provider>
   )
 }
+
 export default MyApp

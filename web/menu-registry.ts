@@ -9,8 +9,9 @@ const RecomRenewalMenu: MenuGroupType = {
     { path: "result_by_id", name: "유저별 검증" },
     { path: "result_by_gno", name: "공고별 검증" },
     { path: "get_users", name: "유저 목록 조회" },
-    { path: "monitor_model_by_bz", name: "모델 결과 조회" },
-    { path: "monitor_result_by_bz", name: "추천 결과 조회" },
+    { path: "result_model_by_gno", name: "모델 결과 조회" },
+    // { path: "monitor_model_by_bz", name: "모델 결과 조회" },
+    // { path: "monitor_result_by_bz", name: "추천 결과 조회" },
   ]
 }
 

@@ -3,14 +3,7 @@ from typing import List
 from fastapi import APIRouter
 from jsf import JSF
 
-from models.recom_renewal import (
-    ResultByIdInput, ResultByIdOutput,
-    ResultByGnoInput, ResultByGnoOutput,
-    EnvInput,
-    GetUsersOutput,
-    MonitorModelByBzOutput,
-    MonitorResultByBzOutput
-)
+from models.recom_renewal import *
 from queries.recom_renewal import (
     query_result_by_id,
     query_result_by_gno,
@@ -356,8 +349,17 @@ FROM (
 )
 WHERE rownum <= 1
     """
-    query = query_monitor_result_by_bz.string
     data = PrestoExecutor.execute(query, include_rowid=True)
     # data = JSF(MonitorResultByBzOutput.schema()).generate(3)
     return data
 
+
+@router.post("/result_model_by_gno", tags=[tag], response_model=List[ResultModelByGnoOutput], description="모델 결과 조회")
+async def handler_result_model_by_gno(body: ResultModelByGnoInput):
+    db = "mlresult_staging" if body.env else "mlresult"
+    table = "mf_gi_sim"
+    query = f"""
+    """
+    # data = PrestoExecutor.execute(query, include_rowid=True)
+    data = JSF(ResultModelByGnoOutput.schema()).generate(3)
+    return data

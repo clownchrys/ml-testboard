@@ -70,3 +70,15 @@ class MonitorResultByBzOutput(BaseModelWithRowid):
     bizjobtype_bctgr_name: Optional[str]
     bizjobtype_name: Optional[str]
 
+
+class ResultModelByGnoInput(BaseModel):
+    env: str
+    gno: int
+
+
+class ResultModelByGnoOutput(BaseModelWithRowid):
+    gno: int
+    gi_title: Optional[str]
+    jobname: Optional[str]
+    score: float
+    link: str

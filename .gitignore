@@ -1,6 +1,7 @@
 __pycache__
 .idea
 .DS_STORE
+*.log
 
 # server
 server/.venv
@@ -8,11 +9,6 @@ server/logs
 server/poetry.lock
 
 # web
+node_modules
 web/.next
-web/node_modules
 web/build
-web/package-lock.json
-web/yarn.lock
-web/npm-debug.log*
-web/yarn-debug.log*
-web/yarn-error.log*
