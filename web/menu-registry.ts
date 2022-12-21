@@ -51,6 +51,7 @@ const RecomAmAdvMenu: MenuGroupType = {
   children: [
     { path: "user_profile", name: "유저 프로파일 조회" },
     { path: "result_by_user_story", name: "유저별 스토리 결과 조회" },
+    { path: "result_gi_skill", name: "공고별 프로파일 스킬 조회" },
   ]
 }
 

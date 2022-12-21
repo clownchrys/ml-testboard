@@ -6,7 +6,6 @@ __pycache__
 # server
 server/.venv
 server/logs
-server/poetry.lock
 
 # web
 node_modules

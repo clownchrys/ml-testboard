@@ -28,3 +28,12 @@ class ResultUserProfile(BaseModelWithRowid):
     location_name: str
     location_code: str
 
+
+class ResultGiSkillInput(BaseModel):
+    al_gi_no: int
+
+
+class ResultGiSkillOutput(BaseModelWithRowid):
+    al_gi_no: int
+    profile_skl: str
+
