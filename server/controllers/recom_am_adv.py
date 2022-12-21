@@ -331,7 +331,7 @@ async def handler_result_gi_skill(body:ResultGiSkillInput):
         FROM user_story_am_staging.am_recm_guin_profile
         WHERE al_gi_no = {body.al_gi_no}
     """
-    data = JSF(ResultGiSkillOutput.schema()).generate(3)
-    #data = PrestoExecutor.execute(query, include_rowid=True)
+    #data = JSF(ResultGiSkillOutput.schema()).generate(3)
+    data = PrestoExecutor.execute(query, include_rowid=True)
     return data
 
