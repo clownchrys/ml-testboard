@@ -22,6 +22,7 @@ function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/icon.png"/>
       </Head>
       <MainLayout>
+        {/* @ts-ignore */}
         <Component { ...pageProps }/>
       </MainLayout>
     </Provider>
