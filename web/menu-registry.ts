@@ -55,7 +55,18 @@ const RecomAmAdvMenu: MenuGroupType = {
   ]
 }
 
+const CommonMenu: MenuGroupType = {
+  root: {
+    path: "common",
+    name: "공통"
+  },
+  children: [
+    { path: "show_item", name: "공고/이력서 조회" },
+  ]
+}
+
 export default [
+  CommonMenu,
   RecomRenewalMenu,
   RecomContentMenu,
   RecomAdvMenu,

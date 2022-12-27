@@ -28,10 +28,10 @@ const fields: FieldDesc<InputModel>[] = [
     placeholder: "개발환경",
     inputType: "Select",
     inputStyle: { width: 120 },
-    selectOptions: [
-		{ name: "staging", value: "staging" },
-		{ name: "production", value: "prod" },
-	]
+    availableOpt: [
+      { name: "staging", value: "staging" },
+      { name: "production", value: "prod" },
+    ]
   },
 ]
 

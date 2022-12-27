@@ -3,7 +3,14 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { Menu } from "antd";
 import Sider from "antd/lib/layout/Sider";
-import { DesktopOutlined, FileOutlined, PieChartOutlined, PushpinOutlined, HomeOutlined, ProjectOutlined } from "@ant-design/icons";
+import {
+  DesktopOutlined,
+  PushpinOutlined,
+  HomeOutlined,
+  ProjectOutlined,
+  FileOutlined,
+  PieChartOutlined
+} from "@ant-design/icons";
 import { SelectInfo, SelectEventHandler } from "rc-menu/lib/interface";
 import { useSelector } from "react-redux";
 import { RootState } from "reducers";

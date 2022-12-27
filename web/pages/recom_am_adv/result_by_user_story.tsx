@@ -56,7 +56,7 @@ const fields: FieldDesc<InputModel>[] = [
     placeholder: "스토리 번호",
     inputType: "Select",
     inputStyle: { width: 120 },
-    selectOptions: story_options.sort((a, b) => a.value - b.value)
+    availableOpt: story_options.sort((a, b) => a.value - b.value)
   },
   {
     param: "m_id",

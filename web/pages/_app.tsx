@@ -7,9 +7,13 @@ import { createStore } from "redux";
 import rootReducer from "reducers";
 import MainLayout from "layouts";
 
+/* To. 혹시나 나중에 이거 건드리게 되는 분께
+ * 미안합니다...........
+ **/
+
 const store = createStore(rootReducer)
 
-function MyApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <Provider store={ store }>
       <Head>
@@ -18,10 +22,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/icon.png"/>
       </Head>
       <MainLayout>
-        <Component {...pageProps}/>
+        <Component { ...pageProps }/>
       </MainLayout>
     </Provider>
   )
 }
 
-export default MyApp
+export default App

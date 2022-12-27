@@ -6,10 +6,10 @@ export type FieldDesc<Model> = {
   placeholder: string,
   required: boolean,
   message?: string,
-  inputType: "Input" | "InputNumber" | "Select",
+  inputType: "Input" | "InputNumber" | "Select" | "Radio",
   inputStyle?: React.CSSProperties,
-  selectDefaultValue?: any,
-  selectOptions?: { name: string, value: any }[],
+  defaultValue?: any,
+  availableOpt?: { name: string, value: any }[],
 }
 
 export type BaseFormProps<FieldModel, ApiReturnModel> = {

@@ -1,9 +1,9 @@
-import { FieldDesc } from "../types/form";
-import { Input, InputNumber, Select } from "antd";
 import React from "react";
+import { Input, InputNumber, Radio, Select } from "antd";
+import { FieldDesc } from "types/form";
 
 export function makeInputComponent<FieldModel> (fieldDesc: FieldDesc<FieldModel>): JSX.Element {
-  const { inputType, inputStyle, placeholder, selectOptions, selectDefaultValue } = fieldDesc
+  const { inputType, inputStyle, placeholder, availableOpt, defaultValue } = fieldDesc
 
   switch (inputType) {
     case "Input":
@@ -14,14 +14,24 @@ export function makeInputComponent<FieldModel> (fieldDesc: FieldDesc<FieldModel>
 
     case "Select":
       return <Select
-        defaultValue={ selectDefaultValue }
+        defaultValue={ defaultValue }
         showSearch
         optionFilterProp="children"
         style={ inputStyle }
       >
-        { selectOptions?.map(({ name, value }, index) =>
+        { availableOpt?.map(({ name, value }, index) =>
           <Select.Option key={ index } value={ value }>{ name }</Select.Option>
         ) }
       </Select>
+
+    case "Radio":
+      return <Radio.Group
+        defaultValue={ defaultValue }
+        style={ inputStyle }
+      >
+        { availableOpt?.map(({ name, value }, index) =>
+          <Radio.Button key={ index } value={ value }>{ name }</Radio.Button>
+        ) }
+      </Radio.Group>
   }
 }
