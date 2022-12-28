@@ -69,7 +69,8 @@ function RenderItemModule<FieldModel, ApiReturnModel>({ fields, style }: RenderI
         url = `https://www.jobkorea.co.kr/Recruit/GI_Read/${menuInfo.key}`; break;
       case "rno":
         // itemTypeName = "이력서";
-        url = `https://www.jobkorea.co.kr/Corp/Person/Find/Resume/View?type=c&rNo=${menuInfo.key}`; break;
+        // url = `https://www.jobkorea.co.kr/Corp/Person/Find/Resume/View?type=c&rNo=${menuInfo.key}`; break;
+        url = `https://stg3-www.jobkorea.co.kr/Corp/Person/Find/Resume/View?rNo=${menuInfo.key}`; break;
       default:
         // itemTypeName = "없음";
         alert("Invalid itemType assigned"); return;
