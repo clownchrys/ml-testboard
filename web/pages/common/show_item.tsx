@@ -41,7 +41,7 @@ const fields: FieldDesc<InputModel>[] = [
     label: "아이템 번호",
     required: true,
     message: "선택한 아이템의 번호를 입력해주세요",
-    placeholder: "예) 100001,100002,100003",
+    placeholder: "예) 100001,100002,100003 100004 100005 (콤마 또는 공백으로 분할된 숫자)",
     inputType: "Input",
   }
 ]

@@ -39,7 +39,7 @@ function RenderItemModule<FieldModel, ApiReturnModel>({ fields, style }: RenderI
       currentItemIds: undefined,
       itemType: param.itemType,
       itemIds: param.itemIds
-        .split(",")
+        .split(/,|\s/)
         .map((value) => value.trim())
         .filter((value) => /^\d+$/.test(value))
     }))
