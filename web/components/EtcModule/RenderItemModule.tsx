@@ -69,7 +69,8 @@ function RenderItemModule<FieldModel, ApiReturnModel>({ fields, style }: RenderI
         url = `https://www.jobkorea.co.kr/Recruit/GI_Read/${menuInfo.key}`; break;
       case "rno":
         // itemTypeName = "이력서";
-        url = `https://www.jobkorea.co.kr/Corp/Person/Find/Resume/View?type=c&rNo=${menuInfo.key}`; break;
+        // url = `https://www.jobkorea.co.kr/Corp/Person/Find/Resume/View?type=c&rNo=${menuInfo.key}`; break;
+        url = `https://stg3-www.jobkorea.co.kr/Corp/Person/Find/Resume/View?rNo=${menuInfo.key}`; break;
       default:
         // itemTypeName = "없음";
         alert("Invalid itemType assigned"); return;
@@ -106,30 +107,9 @@ function RenderItemModule<FieldModel, ApiReturnModel>({ fields, style }: RenderI
     {
       (renderUrl == undefined)
         ? <Empty description={helpMsg} style={{ margin: "50px 0" }}/>
-        : <>
-          {
-            (itemType == "gno") &&
-              <iframe src={renderUrl} style={{ width: "100%", height: "100vh", border: "none" }} />
-          }
-          {
-            (itemType == "rno") &&
-              <Empty
-                  description={"이력서는 인라인으로 열 수 없습니다 (issue: CORS)"}
-                  style={{ margin: "50px 0" }}
-              >
-                  <Button
-                      type="primary"
-                      size="large"
-                      onClick={ () => window.open(renderUrl, "_blank", "location=0,toolbar=0,menubar=0") }
-                      style={{ marginTop: 20 }}
-                  >
-                      새 창으로 열기
-                  </Button>
-              </Empty>
-          }
-        </>
-
+        : <iframe src={renderUrl} style={{ width: "100%", height: "100vh", border: "none" }} />
     }
+
     </>
 }
 
