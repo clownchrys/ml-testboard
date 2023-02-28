@@ -15,6 +15,7 @@ from fastapi.responses import JSONResponse
 
 from controllers import (
     test,
+    common,
     recom_renewal,
     recom_content,
     recom_adv,
@@ -44,6 +45,7 @@ app.include_router(recom_renewal.router, prefix="/recom_renewal")
 app.include_router(recom_content.router, prefix="/recom_content")
 app.include_router(recom_adv.router, prefix="/recom_adv")
 app.include_router(recom_am_adv.router, prefix="/recom_am_adv")
+app.include_router(common.router, prefix="/common")
 
 
 @app.on_event("startup")
